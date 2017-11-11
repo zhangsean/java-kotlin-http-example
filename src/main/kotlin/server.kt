@@ -13,7 +13,11 @@ fun main(args: Array<String>) {
     response.send("HTTP request processed by " + hostname) 
   })
 
-  server.get("/machine", {
+  server.get("/ip", {
+    response.send(ip) 
+  })
+
+  server.get("/hostname", {
     response.send(hostname) 
   })
 
