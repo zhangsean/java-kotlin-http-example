@@ -6,15 +6,16 @@ import java.net.InetAddress;
 
 fun main(args: Array<String>) {
   val server = AppServer()
-  val ip = InetAddress.getLocalHost()
-  val hostname = ip.getHostName()
+  val host = InetAddress.getLocalHost()
+  val hostname = host.getHostName()
+  var ip = host.getHostAddress()
 
   server.get("/", {
     response.send("HTTP request processed by " + hostname) 
   })
 
   server.get("/ip", {
-    response.send(ip) 
+    response.send(ip)
   })
 
   server.get("/hostname", {
